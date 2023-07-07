@@ -1,0 +1,9 @@
+{
+	"C_Cpp.errorSquiggles": "disabled",
+	"files.associations": {
+		"algorithm": "c",
+		"sstream": "c",
+		"iterator": "c",
+		"push_swap.h": "c"
+	}
+}
