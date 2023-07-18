@@ -1,76 +1,75 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 18:43:13 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/07 16:01:04 by anmanuky         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "checker.h"
 
-#include "push_swap.h"
-
-void	for_error(void)
+int	*arr_index_c(int size_arr, char **numbers)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	int		k;
+	int		*arr;
+	int		*arr1;
+	int		*arr_index;
+
+	k = 0;
+	arr = (int *)malloc(sizeof(int) * (size_arr));
+	arr1 = (int *)malloc(sizeof(int) * (size_arr));
+	arr_index = (int *)malloc(sizeof(int) * (size_arr));
+	if (!arr || !arr1 || !arr_index)
+		return (0);
+	while (k < size_arr)
+	{
+		arr[k] = ft_atoi(numbers[k]);
+		arr1[k] = arr[k];
+		k++;
+	}
+	checker_c(arr, size_arr);
+	quick_sort(arr, size_arr);
+	arr_index = for_index_sort(arr, arr1, arr_index, size_arr);
+	free(arr);
+	free(arr1);
+	return (arr_index);
 }
 
-void	space_checker(char *argv)
+char	**mix(int argv_len, int argc, char **argv, int *size_arr)
 {
-	int	i;
+	int		i;
+	char	**numbers;
+	char	*mix;
+	int		j;
 
-	i = 0;
-	while (argv[i] != '\0')
+	mix = (char *)malloc(sizeof(char) * argv_len);
+	if (!mix)
+		return (0);
+	i = 1;
+	ft_bzero(mix, argv_len - 1);
+	j = 0;
+	while (i < argc)
 	{
-		if (argv[i] != ' ')
-			return ;
+		space_checker_bonus(argv[i]);
+		mix = ft_strcpy(mix, argv[i], &j, argv_len);
 		i++;
 	}
-	for_error();
+	*size_arr = 0;
+	numbers = ft_split(mix, ' ', &(*size_arr));
+	free(mix);
+	return (numbers);
 }
 
-void	check_duplication(int index, int *arr, int arr_size)
+int	main(int argc, char **argv)
 {
-	int	i;
-	int	counter;
+	t_list	*a;
+	t_list	*b;
+	t_data	*data;
 
-	i = 0;
-	counter = 0;
-	while (i < arr_size)
+	data = malloc(sizeof(t_data));
+	if (argc >= 2)
 	{
-		if (arr[i] == arr[index])
-			counter++;
-		i++;
+		a = NULL;
+		b = NULL;
+		data->argv_len = the_length_of_argv(argc, argv);
+		data->numbers = mix(data->argv_len, argc, argv, &data->size_arr);
+		data->arr_index1 = arr_index_c(data->size_arr, data->numbers);
+		list_part_c(data->arr_index1, data->size_arr, &a);
+		list_helper(&a, &b);
+		// system("leaks push_swap");
 	}
-	if (counter >= 2)
-		for_error();
+	return (0);
 }
 
-void	checker(int *arr, int arr_size)
-{
-	int	i;
-
-	i = 0;
-	while (i < arr_size)
-	{
-		check_duplication(i, arr, arr_size);
-		if (!(arr[i] <= 2147483647 && arr[i] >= -2147483648))
-			for_error();
-		i++;
-	}
-	a_is_sorted(arr, arr_size);
-}
-
-void	a_is_sorted(int *arr, int size_arr)
-{
-	int	i;
-
-	i = 0;
-	while ((i < size_arr - 1) && arr[i] < arr[i + 1])
-		i++;
-	if (i == size_arr - 1)
-		exit(0);
-}

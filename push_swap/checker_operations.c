@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   checker_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:45:32 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/13 14:37:05 by anmanuky         ###   ########.fr       */
+/*   Updated: 2023/07/14 16:57:26 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	sa(t_list **lst)
+void	sa_c(t_list **lst)
 {
 	t_list	*start;
 	t_list	*cur;
@@ -24,10 +24,9 @@ void	sa(t_list **lst)
 	cur = *lst;
 	*lst = start;
 	(*lst)->next = cur;
-	write(1, "sa\n", 3);
 }
 
-void	sb(t_list **lst)
+void	sb_c(t_list **lst)
 {
 	t_list	*start;
 	t_list	*cur;
@@ -39,17 +38,15 @@ void	sb(t_list **lst)
 	cur = *lst;
 	*lst = start;
 	(*lst)->next = cur;
-	write(1, "sb\n", 3);
 }
 
-void	ss(t_list **a, t_list **b)
+void	ss_c(t_list **a, t_list **b)
 {
-	sa(a);
-	sb(b);
-	write(1, "ss\n", 3);
+	sa_c(a);
+	sb_c(b);
 }
 
-void	pa(t_list **a, t_list **b)
+void	pa_c(t_list **a, t_list **b)
 {
 	t_list	*cur;
 
@@ -64,10 +61,9 @@ void	pa(t_list **a, t_list **b)
 	(*b)->next = *a;
 	*a = *b;
 	*b = cur;
-	write(1, "pa\n", 3);
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb_c(t_list **a, t_list **b)
 {
 	t_list	*cur;
 
@@ -82,5 +78,4 @@ void	pb(t_list **a, t_list **b)
 	(*a)->next = *b;
 	*b = *a;
 	*a = cur;
-	write(1, "pb\n", 3);
 }

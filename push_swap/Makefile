@@ -1,41 +1,44 @@
 NAME    = push_swap
- 
-PRINTF =  libftprintf.a
 
-HEADER  = push_swap.h
+NAME2	= checker
 
-SRCS    = $(shell find "." -maxdepth 1 -name "*.c")
+SRCS    = $(shell find "." -maxdepth 1 -name "*.c" ! -name "checker*.c")
+
+BONUS_SRCS	= $(shell find "." -maxdepth 1 -name "*.c" ! -name "push_swap.c")
 
 OBJS    = $(SRCS:.c=.o)
 
-CFLAGS  = -Wall -Wextra -Werror 
--g3 -fsanitize=address
+BONUS_OBJS	= $(BONUS_SRCS:.c=.o)
+
+CFLAGS  = -Wall -Wextra -Werror
 
 RM      = rm -f
 
 CC      = cc
 
-all: $(NAME)
+all: $(NAME) $(NAME1)
 
 $(NAME): $(OBJS)
-	make -C printf
-	$(CC) $(CFLAGS) $(OBJS) printf/$(PRINTF) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
 
+bonus:	$(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(NAME2)
+
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAME2)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
 
 test:	$(NAME)
-		$(eval ARG = $(shell jot -r 500 0 20000000))
+		$(eval ARG = $(shell jot -r 100 0 20000000))
 		./push_swap $(ARG) | ./checker_Mac $(ARG)
 		@echo -n "Instructions: "
 		@./push_swap $(ARG) | wc -l

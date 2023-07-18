@@ -6,16 +6,22 @@
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:59:23 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/06 19:40:40 by anmanuky         ###   ########.fr       */
+/*   Updated: 2023/07/12 18:51:37 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	number_checker(char c)
+int	number_checker(char c, int *k, int *flag)
 {
+	if ((c == '0') && (*flag == 0))
+		(*k)++;
 	if ((c <= '9' && c >= '0'))
+	{
+		if (c != '0')
+			*flag = 1;
 		return (1);
+	}
 	return (0);
 }
 
@@ -36,28 +42,24 @@ int	ft_atoi(const char *str)
 	int	i;
 	int	j;
 	int	sign;
-	int	output;
+	int	k;
+	int	flag;
 
 	i = 0;
 	sign = 1;
-	output = 0;
+	flag = 0;
 	ft_atoi1(str, &i, &sign);
 	j = i;
+	k = j;
 	if (str[j] == '\0')
 		for_error();
 	while (str[j] != '\0')
 	{
-		if (!number_checker(str[j]))
+		if (!number_checker(str[j], &k, &flag))
 			for_error();
 		j++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		ft_atoi_helper(&i, output, str);
-		output = output * 10 + str[i] - '0';
-		i++;
-	}
-	return (output * sign);
+	return (ft_atoi2(str, &i, &k) * sign);
 }
 
 size_t	ft_wordcount(char *s, char c)
