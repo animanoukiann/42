@@ -1,4 +1,46 @@
-#include "checker.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/19 18:20:54 by anmanuky          #+#    #+#             */
+/*   Updated: 2023/07/19 18:23:28 by anmanuky         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "checker_bonus.h"
+
+int	length_oper(char *str1, char *str2)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (str1[i] != '\0')
+		i++;
+	while (str2[j] != '\0')
+		j++;
+	if (i > j)
+		return (i - 1);
+	else
+		return (j - 1);
+}
+
+void	is_sorted(t_list **a, t_list **b)
+{
+	while (*a && (*a)->next)
+	{
+		if ((*a)->data < (*a)->next->data)
+			*a = (*a)->next;
+		else
+			ok_ko(0);
+	}
+	if (*b)
+		ok_ko(0);
+}
 
 int	*arr_index_c(int size_arr, char **numbers)
 {
@@ -68,8 +110,6 @@ int	main(int argc, char **argv)
 		data->arr_index1 = arr_index_c(data->size_arr, data->numbers);
 		list_part_c(data->arr_index1, data->size_arr, &a);
 		list_helper(&a, &b);
-		// system("leaks push_swap");
 	}
 	return (0);
 }
-

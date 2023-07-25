@@ -6,7 +6,7 @@
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:53:12 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/18 17:24:26 by anmanuky         ###   ########.fr       */
+/*   Updated: 2023/07/25 16:32:14 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ int	main(int argc, char **argv)
 		list_part(data->arr_index1, data->size_arr, &a);
 		butterfly(&a, &b, data->size_arr);
 		back_to_a(&a, &b, data->size_arr);
-		// system("leaks push_swap");
 	}
 	return (0);
 }

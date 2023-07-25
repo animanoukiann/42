@@ -6,13 +6,13 @@
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:45:38 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/15 15:32:23 by anmanuky         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:10:22 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_list **a)
+void	ra(t_list **a, int flag)
 {
 	t_list	*start;
 	t_list	*current;
@@ -32,10 +32,11 @@ void	ra(t_list **a)
 			*a = new;
 	}
 	*a = start;
-	write(1, "ra\n", 3);
+	if (flag == 0)
+		write(1, "ra\n", 3);
 }
 
-void	rb(t_list **b)
+void	rb(t_list **b, int flag)
 {
 	t_list	*start;
 	t_list	*current;
@@ -55,17 +56,18 @@ void	rb(t_list **b)
 			*b = new;
 	}
 	*b = start;
-	write(1, "rb\n", 3);
+	if (flag == 0)
+		write(1, "rb\n", 3);
 }
 
 void	rr(t_list **a, t_list **b)
 {
-	ra(a);
-	rb(b);
+	ra(a, 1);
+	rb(b, 1);
 	write(1, "rr\n", 3);
 }
 
-void	rra(t_list **a)
+void	rra(t_list **a, int flag)
 {
 	t_list	*last;
 	t_list	*per_last;
@@ -79,10 +81,11 @@ void	rra(t_list **a)
 	per_last->next = NULL;
 	last->next = *a;
 	*a = last;
-	write(1, "rra\n", 4);
+	if (flag == 0)
+		write(1, "rra\n", 4);
 }
 
-void	rrb(t_list **b)
+void	rrb(t_list **b, int flag)
 {
 	t_list	*last;
 	t_list	*per_last;
@@ -96,5 +99,6 @@ void	rrb(t_list **b)
 	per_last->next = NULL;
 	last->next = *b;
 	*b = last;
-	write(1, "rrb\n", 4);
+	if (flag == 0)
+		write(1, "rrb\n", 4);
 }

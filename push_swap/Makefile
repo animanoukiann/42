@@ -10,7 +10,9 @@ OBJS    = $(SRCS:.c=.o)
 
 BONUS_OBJS	= $(BONUS_SRCS:.c=.o)
 
-CFLAGS  = -Wall -Wextra -Werror
+CFLAGS  = -Wall -Wextra -Werror 
+
+# -g3 -fsanitize=address
 
 RM      = rm -f
 
@@ -37,8 +39,8 @@ re: fclean all
 
 .PHONY: all bonus clean fclean re
 
-test:	$(NAME)
-		$(eval ARG = $(shell jot -r 100 0 20000000))
-		./push_swap $(ARG) | ./checker_Mac $(ARG)
-		@echo -n "Instructions: "
-		@./push_swap $(ARG) | wc -l
+# test:	$(NAME)
+# 		$(eval ARG = $(shell jot -r 500 0 20000000))
+# 		./push_swap $(ARG) | ./checker_Mac $(ARG)
+# 		@echo -n "Instructions: "
+# 		@./push_swap $(ARG) | wc -l

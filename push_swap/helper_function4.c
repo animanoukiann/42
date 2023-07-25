@@ -6,7 +6,7 @@
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:25:03 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/05 19:14:30 by anmanuky         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:16:47 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	for_3greater_helper(t_list **a, int *count)
 {
 	while ((*count)--)
 	{
-		rra(a);
+		rra(a, 0);
 	}
 }
 
@@ -62,7 +62,7 @@ void	for_3greater(t_list **a, t_list **b, int size_arr)
 			count = min_place - 1;
 			while (count--)
 			{
-				ra(a);
+				ra(a, 0);
 			}
 		}
 		pb(a, b);
@@ -74,7 +74,7 @@ void	back_to_a1(int *count, t_list **b)
 {
 	while ((*count)--)
 	{
-		rrb(b);
+		rrb(b, 0);
 	}
 }
 
@@ -96,7 +96,7 @@ void	back_to_a(t_list **a, t_list **b, int size_arr)
 			count = max_place - 1;
 			while (count--)
 			{
-				rb(b);
+				rb(b, 0);
 			}
 		}
 		pa(a, b);

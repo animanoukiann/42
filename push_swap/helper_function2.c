@@ -6,7 +6,7 @@
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 15:56:30 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/05 16:50:33 by anmanuky         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:24:05 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,4 @@ int	n(int len)
 	else if (len >= 500)
 		return (len / 16);
 	return (1);
-}
-
-void	rrr(t_list **a, t_list **b)
-{
-	rra(a);
-	rrb(b);
 }

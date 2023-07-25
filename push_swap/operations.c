@@ -6,13 +6,13 @@
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:45:32 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/13 14:37:05 by anmanuky         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:07:16 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_list **lst)
+void	sa(t_list **lst, int flag)
 {
 	t_list	*start;
 	t_list	*cur;
@@ -24,10 +24,11 @@ void	sa(t_list **lst)
 	cur = *lst;
 	*lst = start;
 	(*lst)->next = cur;
-	write(1, "sa\n", 3);
+	if (flag == 0)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_list **lst)
+void	sb(t_list **lst, int flag)
 {
 	t_list	*start;
 	t_list	*cur;
@@ -39,13 +40,14 @@ void	sb(t_list **lst)
 	cur = *lst;
 	*lst = start;
 	(*lst)->next = cur;
-	write(1, "sb\n", 3);
+	if (flag == 0)
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_list **a, t_list **b)
 {
-	sa(a);
-	sb(b);
+	sa(a, 1);
+	sb(b, 1);
 	write(1, "ss\n", 3);
 }
 

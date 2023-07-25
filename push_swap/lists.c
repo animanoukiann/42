@@ -6,7 +6,7 @@
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:43:55 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/18 17:47:31 by anmanuky         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:29:26 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,11 @@ t_list	*ft_lstlast(t_list *lst)
 	while (lst->next)
 		lst = lst->next;
 	return (lst);
+}
+
+void	rrr(t_list **a, t_list **b)
+{
+	rra(a, 1);
+	rrb(b, 1);
+	write(1, "rrr\n", 3);
 }

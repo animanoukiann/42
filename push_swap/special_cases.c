@@ -6,7 +6,7 @@
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 18:43:13 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/18 17:57:19 by anmanuky         ###   ########.fr       */
+/*   Updated: 2023/07/25 16:32:36 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	for_error(void)
 {
-	// system("leaks push_swap");
 	write(2, "Error\n", 6);
 	exit(1);
 }

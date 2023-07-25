@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_special_cases.c                            :+:      :+:    :+:   */
+/*   checker_special_cases_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 18:43:13 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/18 19:05:01 by anmanuky         ###   ########.fr       */
+/*   Created: 2023/07/19 18:22:07 by anmanuky          #+#    #+#             */
+/*   Updated: 2023/07/24 15:29:43 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	for_error_bonus(void)
 {
@@ -21,7 +21,7 @@ void	for_error_bonus(void)
 void	space_checker_bonus(char *argv)
 {
 	int	i;
-	
+
 	i = 0;
 	while (argv[i] != '\0')
 	{
@@ -59,4 +59,10 @@ void	checker_c(int *arr, int arr_size)
 		check_duplication_bonus(i, arr, arr_size);
 		i++;
 	}
+}
+
+void	rrr_c(t_list **a, t_list **b)
+{
+	rra_c(a);
+	rrb_c(b);
 }

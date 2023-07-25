@@ -6,7 +6,7 @@
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:17:33 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/14 15:53:57 by anmanuky         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:18:46 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	butterfly_helper(t_list **a, t_list **b)
 {
 	pb(a, b);
-	rb(b);
+	rb(b, 0);
 }
 
 void	butterfly(t_list **a, t_list **b, int size_arr)
@@ -43,7 +43,7 @@ void	butterfly(t_list **a, t_list **b, int size_arr)
 			i++;
 		}
 		else
-			ra(a);
+			ra(a, 0);
 	}
 }
 
@@ -56,18 +56,18 @@ void	for_3(t_list **a)
 			if ((*a)->next->data < (*a)->next->next->data
 				&& (*a)->data > (*a)->next->next->data)
 			{
-				ra(a);
+				ra(a, 0);
 				return ;
 			}
-			sa(a);
+			sa(a, 0);
 		}
 		if ((*a)->data < (*a)->next->data
 			&& (*a)->next->data < (*a)->next->next->data)
 			return ;
-		rra(a);
+		rra(a, 0);
 		if ((*a)->data > (*a)->next->data)
 		{
-			sa(a);
+			sa(a, 0);
 		}
 	}
 }
@@ -100,7 +100,7 @@ void	for_special_case(t_list **a, t_list **b, int size_arr)
 {
 	if (size_arr == 2)
 	{
-		sa(a);
+		sa(a, 0);
 		return ;
 	}
 	else if (size_arr == 3)

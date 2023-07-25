@@ -6,7 +6,7 @@
 /*   By: anmanuky <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:50:02 by anmanuky          #+#    #+#             */
-/*   Updated: 2023/07/18 17:47:52 by anmanuky         ###   ########.fr       */
+/*   Updated: 2023/07/24 15:13:36 by anmanuky         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ t_list			*ft_lstlast(t_list *lst);
 void			quick_sort(int *arr, int size_arr);
 int				*for_index_sort(int *arr, int *arr1, int *arr_index,
 					int size_arr);
-void			sa(t_list **lst);
-void			sb(t_list **lst);
+void			sa(t_list **lst, int flag);
+void			sb(t_list **lst, int flag);
 void			pa(t_list **a, t_list **b);
 void			pb(t_list **a, t_list **b);
-void			ra(t_list **a);
-void			rb(t_list **b);
-void			rra(t_list **a);
-void			rrb(t_list **b);
+void			ra(t_list **a, int flag);
+void			rb(t_list **b, int flag);
+void			rra(t_list **a, int flag);
+void			rrb(t_list **b, int flag);
 void			rrr(t_list **a, t_list **b);
 void			rr(t_list **a, t_list **b);
 void			ss(t_list **a, t_list **b);
