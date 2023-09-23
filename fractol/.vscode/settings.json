@@ -1,0 +1,18 @@
+{
+	"files.associations": {
+		"stdlib.h": "c",
+		"locale": "c",
+		"ostream": "c",
+		"__functional_03": "c",
+		"memory_resource": "c",
+		"functional": "c",
+		"memory": "c",
+		"math.h": "c",
+		"__bit_reference": "c",
+		"algorithm": "c",
+		"bitset": "c",
+		"chrono": "c",
+		"unordered_map": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
+}
