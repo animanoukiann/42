@@ -4,7 +4,7 @@ SRCS    = $(shell find "." -maxdepth 1 -name "*.c")
 
 OBJS    = $(SRCS:.c=.o)
 
-CFLAGS  = -Wall -Wextra -Werror
+CFLAGS  = -Wall -Wextra -Werror -g #-fsanitize=thread
 
 RM      = rm -f
 

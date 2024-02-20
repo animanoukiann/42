@@ -2,8 +2,14 @@
 
 void	exit_fail(void)
 {
-    printf("Something went wrong!\n");
-    exit(1);
+	printf(RED "Something went wrong!\n" RESET);
+	exit(1);
+}
+
+void	exit_success(void)
+{
+	printf(GREEN "Successfully finished!\n" RESET);
+	exit(0);
 }
 
 int	ft_atoi_case(const char *str, int i)
@@ -22,7 +28,7 @@ int	ft_atoi_case(const char *str, int i)
 	}
 }
 
-int ft_atoi_changed(const char *str)
+int	ft_atoi_changed(const char *str)
 {
 	int	i;
 	int	sign;
@@ -51,16 +57,16 @@ int ft_atoi_changed(const char *str)
 	return (0);
 }
 
-void    parsing(int argc, char **argv)
+void	parsing(int argc, char **argv)
 {
-    int	i;
-    if (argc < 5 || argc > 6)
-        exit_fail();
-    i = 1;
-    while (i < argc)
-    {
-        if (ft_atoi_changed(argv[i]) == 0)
-            exit_fail();
-        i++;
-    }
+	int	i;
+	if (argc < 5 || argc > 6)
+		exit_fail();
+	i = 1;
+	while (i < argc)
+	{
+		if (ft_atoi_changed(argv[i]) == 0)
+			exit_fail();
+		i++;
+	}
 }
